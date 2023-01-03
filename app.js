@@ -26,13 +26,17 @@ app.get('/welcome', (req, res) => {
     return res.sendFile(path.join(`${__dirname}/frontend/welcome.html`));
 });
 
+//contact page
 app.get("/contact", (req, res) => {
   return res.sendFile(path.join(`${__dirname}/frontend/contact.html`));
 });
-
+//about page
 app.get("/about", (req, res) => {
   return res.sendFile(path.join(`${__dirname}/frontend/about.html`));
 });
+
+
+
 
 const server = app.listen(PORT, (error) => {
   if (error) {
