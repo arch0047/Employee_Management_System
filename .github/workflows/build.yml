@@ -3,6 +3,12 @@ jobs:
   build-node:
     runs-on: ubuntu-latest
     container: node:16
+    env:
+      HOST: den1.mysql3.gear.host
+      DB_USERNAME: sequlizeempdb
+      PASSWORD: DamyantiM@26
+      DATABASE: sequlizeempdb
+      DB_PORT: 3306
     steps:
       - run: node --version
       - run: npm --version
