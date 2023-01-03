@@ -1,0 +1,50 @@
+################# working
+
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+    "email": "ashu@stud.kea.dk",
+    "password": "12345678"
+}
+
+################# working
+
+GET http://localhost:3000/allAdmin
+Content-Type: application/json
+
+
+################# working
+
+POST http://localhost:3000/AdminC
+Content-Type: application/json
+
+{
+    "name": "Ashu ",
+    "email": "Ashu@stud.kea.dk",
+    "password": "123456"
+}
+
+
+################# working
+
+GET http://localhost:3000/findAdmin/8
+Content-Type: application/json
+
+
+################# working
+
+POST http://localhost:3000/updateAdmin/8
+Content-Type: application/json
+
+{
+    "name": "Ashutosh",
+  "email": "ashu@stud.kea.dk",
+  "password": "12345678"
+}
+
+
+###
+
+GET http://localhost:3000/auth/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RlQHRlc3QuY29tIiwiaWQiOjYsImlhdCI6MTYzNzc3NDgzM30.rcLtRIh9K4zscB8Sw38fsk5buNVuFYfRWxjY7soxHyg

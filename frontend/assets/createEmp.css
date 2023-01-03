@@ -1,0 +1,115 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+div.container {
+    max-width: auto;
+    padding: 5%;
+    margin: 15px auto; 
+    top: 77px;
+    left: 40%;
+    box-shadow: 5px 10px 8px #6396cd;
+    border-radius: 5px;
+    position: absolute;
+}
+
+.form-label{
+    font-style: italic;
+    font-weight:bold;
+    font-size: large;
+}
+
+.text-underline-hover:hover {
+    text-decoration: underline;
+}
+
+h2{
+    font-size: x-large;
+    font-weight: bold;
+    ;
+}
+
+div.container1 {
+    max-width: auto;
+    padding: 5%;
+    margin: 15px auto;
+    top: 77px;
+    left: 30%;
+    border-radius: 5px;
+    position: absolute;
+}
+div.containerList {
+    max-width: auto;
+    padding: 5%;
+    margin: 15px auto;
+    top: 77px;
+    left: 20%;
+    border-radius: 5px;
+    position: absolute;
+}
+
+/* ---------------------------------------------------
+    searchEmp
+----------------------------------------------------- */
+div.ContainerLists {
+    max-width: auto;
+    padding: 5%;
+    margin: 15px auto;
+    top: 200px;
+    left: 20%;
+    border-radius: 5px;
+    position: absolute;
+}
+
+
+ div form{
+    width: 400px;  
+    margin-top: 250px;
+    padding: 5%;
+    margin: 15px auto;
+    top:180px;
+    left: 30%;
+    border-radius: 5px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.form-select {
+    max-width: 255px;
+    border-radius: 0px;
+    border-color: black;
+    font-size: large;
+    color: black;
+}
+
+/* ---------------------------------------------------
+    SEARCH STYLE
+----------------------------------------------------- */
+
+div.search h1{
+    text-align: center;
+}
+
+div.search form {
+    width: 600px;
+    border-radius: 25px;
+    line-height: 40px;
+    margin-top: 250px;
+    padding: 7% ;
+    margin: auto;
+    top: 180px;
+    left: 30%;
+    box-shadow: 5px 10px 8px #6396cd;
+}
+ div.search form {font-size: 20px;
+}
+ div.search form input{
+border-radius: 5px;
+box-shadow: 2px 5px 4px #6396cd;
+
+ }
+
+

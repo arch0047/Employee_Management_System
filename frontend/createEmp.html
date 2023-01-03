@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+        integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="assets/overview.css">
+    <link rel="stylesheet" href="assets/createEmp.css">
+
+
+    <title>Add User </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+
+</head>
+    <body>
+        <div class="wrapper">
+            <!-- Sidebar  -->
+            <nav id="sidebar">
+                <div class="sidebar-header">
+                 
+                </div>
+                <ul class="list-unstyled components">
+                    <li>
+                        <a href="/adminpage">Profile</a>
+                    </li>
+
+                    <li class="active">
+                        <a href="/createEmp">Add Employee</a>
+                    </li>
+                    <li>
+                        <a href="allEmp">See Employee List</a>
+                    </li>
+                    <li>
+                        <a href="/searchEmp">Sreach for employee</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Leave Application</a>
+                    </li>
+                </ul>
+
+            </nav>
+            <div id="content">
+                <nav class="navbar navbar-light" style="background-color:#3b7eb9">
+                    <span class="navbar-brand h1" style="color: aliceblue">Employee Management System</span>
+                    <a href="/logout" class="btn btn-info" role="button" aria-pressed="true">Logout</a>
+                </nav>
+                <div class="container-fluid">
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <span>Toggle Sidebar</span>
+                    </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="container1">
+                <h2>Add New Employee</h2>
+                <div>
+                    <form method="POST" action="/empC">
+                        <!-- 2 column grid layout with text inputs for the first and last names -->
+                        <div class="row">
+                            <!-- Name input -->
+                            <div class="form-control-lg">
+                                <label class="form-label" for="name">Name</label><br>
+                                <input class="center-blok" type="text" name="name" id="name" placeholder="Full name"required>
+                            </div>
+                            <!-- Email input -->
+                            <div class="form-control-lg">
+                                <label class="form-label" for="email">Email</label><br>
+                                <input class="center-blok" type="email" name="email" id="email" placeholder="Email"required><br>
+                            </div>
+                            <!-- password input -->
+                            <div class="form-control-lg">
+                                <label class="form-label" for="password">Password</label><br>
+                                <input class="center-blok" type="password" name="password" id="password" placeholder="Password"required><br>
+                            </div>
+                            <!-- phone -->
+                            <div class="form-control-lg">
+                                <label class="form-label" for="employee_phone">Phone</label><br>
+                                <input class="center-blok" type="number" name="employee_phone" id="employee_phone"placeholder="Phone" required><br>
+                            </div>
+                            <!-- Employee Location-->
+                            <div class="form-control-lg">
+                                <label class="form-label" for="employee_phone">Employee Location</label><br>
+                                <select class="form-select " aria-label=".form-select-lg example" id="employee_location" name="employee_location" required>
+                                    <option value="" disabled selected>Select Employee Location</option>
+                                    <option value="1">DK</option>
+                                    <option value="2">US</option>
+                                </select>
+                            </div>
+
+                            <!-- Role id-->
+                            <div class="form-control-lg">
+                                <label class="form-label" for="role_id">Role</label><br>
+                                <select class="form-select " aria-label=".form-select-lg example" id="role_id" name="role_id"
+                                    required>
+                                    <option value="" disabled selected>Select Role</option>
+                                    <option value="1">H.R.Manager</option>
+                                    <option value="2">Developer</option>
+                                    <option value="3">Consultant</option>
+                                    <option value="4">Designer</option>
+                                    <option value="5">Chief director</option>
+                                    <option value="6">Managing director</option>
+                                    <option value="7">Accountant</option>
+                                </select>
+                            </div>
+                        
+                            <!-- Department id-->
+                            <div class="form-control-lg">
+                                <label class="form-label" for="department_id">Department id</label><br>
+                                <select class="form-select " aria-label=".form-select-lg example" id="department_id" name="department_id" required>
+                                    <option value="" disabled selected>Select Department</option>
+                                    <option value="1">IT Department</option>
+                                    <option value="2">Business Development</option>
+                                    <option value="3">UX/UI Department</option>
+                                    <option value="4">HR Department</option>
+                                    <option value="5">Finances Department</option>
+                                </select>
+                            </div>
+                            <!-- Employee salary-->
+                            <div class="form-control-lg">
+                                <label class="form-label" for="employee_salary">Salary</label><br>
+                                <input class="center-blok" type="text" name="employee_salary" id="employee_salary"
+                                    placeholder="Salary" required>
+                            </div>
+                        </div><br>
+
+                <!-- Submit button -->
+                <button class="btn btn-primary btn-lg" type="submit" id="button">Save</button>
+                <br><br>
+                <div ><a href="/createEmp" class="text-underline-hover">Add More</a></div>
+
+            </div>
+            </form>
+      
+    </div>
+    
+        <script src="./public/sidebaar.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+    </body>
+
+</html>

@@ -1,0 +1,77 @@
+
+############ not working
+
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+    "email": "anki@gmail.com",
+    "password": "12341234"
+}
+
+
+#################### working
+
+GET http://localhost:3000/allEmp
+Content-Type: application/json
+
+################## working
+
+POST http://localhost:3000/empC
+Content-Type: application/json
+
+{
+  
+  "name": "ankita Singh",
+  "email": "vanki@gmail.com",
+  "password": "1234",
+  "employee_phone": 11223344,
+  "employee_location": "DK",
+  "role_id": 5,
+  "department_id": 1,
+  "employee_salary": "60,000" 
+}
+
+################## working
+
+GET http://localhost:3000/findOne/17
+Content-Type: application/json
+
+
+################# working
+
+GET http://localhost:3000/find/Emil Dohi
+Content-Type: application/json
+
+
+################# working
+
+GET http://localhost:3000/findemp/DK
+Content-Type: application/json
+
+
+################ working
+
+POST http://localhost:3000/updateEmp/17
+Content-Type: application/json
+
+{  "name": "Ole jens",
+  "email": "Ole@gmail.com",
+  "password": "$2a$10$OewOkjH8vzR5DJBjrmdCXuHedXZB9gvdYApOQ672kn4x0Rqj343WO",
+  "employee_phone": 12131000,
+  "employee_location": "USA",
+  "role_id": 3,
+  "department_id": 1,
+  "employee_salary": "15000"
+}
+
+
+################ working
+
+POST http://localhost:3000/deleteEmp/12
+Content-Type: application/json
+
+###
+
+GET http://localhost:3000/auth/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RlQHRlc3QuY29tIiwiaWQiOjYsImlhdCI6MTYzNzc3NDgzM30.rcLtRIh9K4zscB8Sw38fsk5buNVuFYfRWxjY7soxHyg

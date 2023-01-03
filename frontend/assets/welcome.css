@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+
+body {
+    font-family: "Times New Roman",
+            Times,
+            serif;
+    font-size: 16px;
+    background: #84c0e8;
+}
+body div.container {
+    max-width: 40%;
+    padding: 10%;
+    margin: 15px auto;
+    top: 40px;
+    left: 30%;
+    box-shadow: 5px 10px 8px #6396cd;
+    border-radius: 25px;
+}
+ 
+body div.containerAbt {
+    max-width: 60%;
+    padding: 10%;
+    margin: 15px auto;
+    top: 40px;
+    left: 20%;
+    box-shadow: 5px 10px 8px #6396cd;
+    border-radius: 25px;
+}
+
+body div.containerAbt h1{
+
+    font-size: 25px;
+    font-weight: bold;
+}
+
+h1 {
+
+    font-size: 38px;
+    font-weight: bold;
+}
+
+div {
+    top: 30%;
+    left: 90%;
+    transform: none;
+    position: absolute;
+}
+
+.dropdownbtn {
+    background-color: #05c2fb;
+    padding: 10px;
+    font-size: 16px;
+    border: solid #3b7eb9;
+    cursor: pointer;
+    position: absolute;
+    width: 125px;
+    font-weight: bold;
+}
+
+.dropdown-content {
+    display: none;
+    position: center;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 50px;
+    text-decoration: none;
+    display: block;
+    background-color: #3b7eb9;
+}
+
+.dropdown-content a:hover {
+    background-color: lightslategray;
+}
+
+.show {
+    display: block;
+}

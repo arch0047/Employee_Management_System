@@ -1,0 +1,37 @@
+
+
+################# working
+
+GET http://localhost:3000/allProjects
+Content-Type: application/json
+
+
+################# working
+
+POST http://localhost:3000/CreateProject
+Content-Type: application/json
+
+{
+"project_name": "Mobile App",
+"department_id": 3,
+"status_id": 2
+
+
+}
+
+
+################# working
+
+GET http://localhost:3000/findProject/12
+Content-Type: application/json
+
+
+################# working
+
+POST http://localhost:3000/updateProject/12
+Content-Type: application/json
+
+{"project_name": "Mobile App",
+  "department_id": 3,
+  "status_id": 2
+}
