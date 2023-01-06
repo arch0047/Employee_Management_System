@@ -20,6 +20,9 @@ module.exports = function (sequelize, DataTypes) {
         type: DataTypes.STRING(100),
         allowNull: false,
         unique: "email",
+        validate: {
+          isEmail: true,
+        }
       },
       password: {
         type: DataTypes.STRING(120),
