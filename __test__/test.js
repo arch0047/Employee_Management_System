@@ -75,7 +75,7 @@ describe("Test route for login", () => {
     request(app)
       .post("/login")
       .send({
-        email:"vartika@gmail.com",
+        email:employeeEmail,
         password:"12345678",
       })
       .then((response) => {
