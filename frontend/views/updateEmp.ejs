@@ -91,7 +91,7 @@
 
         <div class="form-group">
             <label for="employee_location">Employee Location:</label>
-            <input type="text" class="form-control" id="employee_location" placeholder="Location"
+            <input pattern="[A-Z -]+" type="text" class="form-control" id="employee_location" placeholder="Location"
                 value="<%= employees.employee_location %>" name="employee_location" required>
         </div>
 

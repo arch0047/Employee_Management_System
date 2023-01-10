@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const { validateCreateAdmin } = require("../util/validate");
 const bcrypt = require("bcrypt");
 const db = require("../connector/db");
 
@@ -10,7 +11,12 @@ router.get("/adminPage", (req, res) => {
 
 
 // Create and Save a new admin
-router.post("/AdminC",(req, res) => {
+router.post("/AdminC", (req, res) => {
+  
+   const { error } = validateCreateAdmin(req.body);
+   if (error) return res.status(400).send(error.details[0].message); //400 = bad request
+
+   console.log(req.body);
 
   try {
     db.sequelize.models.admin
@@ -80,6 +86,24 @@ router.post("/updateAdmin/:id", async (req, res) => {
 
 
 // Delete an admin Do not want to delete admin
+
+// Delete an admin only for the development 
+
+router.post("/deleteAdm/:id", (req, res) => {
+  db.sequelize.models.admin
+    .destroy({ where: { admin_id: req.params.id } })
+    .then((rowDeleted) => {
+      if (rowDeleted == 0) {
+        res.status(404).send("Admin not found");
+      } else {
+        res.status(200).send("Admin is deleted successfully !");
+      }
+    })
+    .catch((err) => res.status(500).send("Something went wrong !"));
+});
+
+
+
 
 // Find all admin
 router.get("/allAdmin", (req, res) => {

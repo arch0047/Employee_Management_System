@@ -1,17 +1,21 @@
 const express = require("express");
 const router = express.Router();
+const { validateCreateEmp } = require("../util/validate");
 const bcrypt = require("bcrypt");
 const db = require("../connector/db");
-const { date } = require("joi");
-const employees = require("../models/employees");
 const Sequelize = require("sequelize");
 const Op = Sequelize.Op;
-const { QueryTypes } = require("sequelize");
+
 
 const admin = require("../models/admin");
 
 // Create and Save a new employee
 router.post("/empC", (req, res) => {
+
+    const { error } = validateCreateEmp(req.body);
+    if (error) return res.status(400).send(error.details[0].message); //400 = bad request
+
+    // console.log(req.body);
   try {
     db.sequelize.models.employees
       .create({
@@ -112,6 +116,7 @@ router.get("/updateEmp/:id", (req, res) => {
 
 
 router.post("/updateEmp", (req, res) => {
+   console.log(req.body);
 
   db.sequelize.models.employees
     .update(

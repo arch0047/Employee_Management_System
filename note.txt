@@ -3,6 +3,8 @@
 node app.js
 npm run dev = nodemon
 
+npm test
+
 
 // git command
 

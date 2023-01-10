@@ -4,8 +4,8 @@ POST http://localhost:3000/login
 Content-Type: application/json
 
 {
-    "email": "ashu@stud.kea.dk",
-    "password": "12345678"
+    "email": "ashuM@stud.kea.dk",
+    "password": "12345677"
 }
 
 ################# working
@@ -20,9 +20,9 @@ POST http://localhost:3000/AdminC
 Content-Type: application/json
 
 {
-    "name": "Ashu ",
-    "email": "Ashu@stud.kea.dk",
-    "password": "123456"
+    "name": "Vanisha",
+    "email": "vaniu@stud.kea.dk",
+    "password": "123van123"
 }
 
 
@@ -38,10 +38,16 @@ POST http://localhost:3000/updateAdmin/8
 Content-Type: application/json
 
 {
-    "name": "Ashutosh",
-  "email": "ashu@stud.kea.dk",
-  "password": "12345678"
+    "name": "AshutoshM",
+  "email": "ashuM@stud.kea.dk",
+  "password": "12345677"
 }
+
+##################
+
+
+POST http://localhost:3000/deleteAdm/10
+Content-Type: application/json
 
 
 ###

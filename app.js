@@ -3,20 +3,27 @@ const app = express();
 const dotenv = require("dotenv");
 dotenv.config();
 // load the mysql routers to the app
-require("./routes/routes.mysql")(app);
+// require("./routes/routes.mysql")(app);
 const path = require("path");
 const PORT = process.env.PORT || 3000;
 
 
+// app.use(function (req, res, next) {
+//   req.headers["content-type"] = "application/x-www-form-urlencoded";
+//   next();
+// });
+
+
+//Allows the use of JSON (for POST requests)
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+require("./routes/routes.mysql")(app);
 // server static files
 app.use(express.static("frontend", { extensions: ["html", "ejs"] }));
 app.set("views", path.join(__dirname, "frontend/views"));
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "/public")));
 
-//Allows the use of JSON (for POST requests)
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
 
 // server static files
 app.use(express.static('frontend', { extensions: ['html'] }))

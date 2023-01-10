@@ -1,19 +1,43 @@
 const joi = require("joi");
 
-//create or add validation
-const validateRegister = (data) => {
+//create admin validation
+const validateCreateAdmin = (data) => {
   const schema = joi.object({
-    email: joi.string().min(6).required().email(),
-    activation_code: joi.string().min(3).required(),
+    name: joi.string().min(4).required(),
+    email: joi.string().min(4).required().email(),
     password: joi
       .string()
       .min(4)
       .regex(/[a-zA-Z0-9]+/)
       .required(),
-    repeat_password: joi.any().valid(joi.ref("password")).required(),
   });
   return schema.validate(data);
 };
+
+
+//create employee validation
+const validateCreateEmp = (data) => {
+  const schema = joi.object({
+    name: joi
+      .string()
+      .min(4)
+      .required()
+      .regex(/[a-zA-Z]+/),
+    email: joi.string().min(4).required().email(),
+    password: joi
+      .string()
+      .min(4)
+      .regex(/[a-zA-Z0-9]+/)
+      .required(),
+    employee_phone: joi.number().min(8),
+    employee_location: joi.string(),
+    role_id: joi.number().min(1),
+    department_id: joi.number().min(1),
+    employee_salary: joi.string().required(),
+  });
+  return schema.validate(data);
+};
+
 
 //Login validation
 const validateLogin = (data) => {
@@ -28,6 +52,7 @@ const validateLogin = (data) => {
 ;
 
 //Exports both methods
-module.exports.validateRegister = validateRegister;
+module.exports.validateCreateAdmin = validateCreateAdmin;
+module.exports.validateCreateEmp = validateCreateEmp;
 module.exports.validateLogin = validateLogin;
 

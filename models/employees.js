@@ -23,16 +23,19 @@ module.exports = function (sequelize, DataTypes) {
       password: {
         type: DataTypes.STRING(120),
         allowNull: false,
+        len: {
+          args: [8],
+          msg: "Password must be 8 digits long",
+        },
       },
       employee_phone: {
         type: DataTypes.INTEGER(11),
         allowNull: true,
         validate: {
           len: {
-            args:
-              [8],
-            msg: 'Phone number must be either 8 digits long'
-          }
+            args: [8,8],
+            msg: "Phone number must be either 8 digits long",
+          },
         },
       },
       employee_location: {
@@ -57,7 +60,7 @@ module.exports = function (sequelize, DataTypes) {
       },
       employee_salary: {
         type: DataTypes.STRING(45),
-        allowNull: true,
+        allowNull: false,
       },
     },
     {
