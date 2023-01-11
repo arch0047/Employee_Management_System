@@ -8,12 +8,6 @@ const path = require("path");
 const PORT = process.env.PORT || 3000;
 
 
-// app.use(function (req, res, next) {
-//   req.headers["content-type"] = "application/x-www-form-urlencoded";
-//   next();
-// });
-
-
 //Allows the use of JSON (for POST requests)
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

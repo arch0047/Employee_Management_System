@@ -5,18 +5,16 @@ const bcrypt = require("bcrypt");
 const db = require("../connector/db");
 
 
-router.get("/adminPage", (req, res) => {
-})
+
 
 
 
 // Create and Save a new admin
 router.post("/AdminC", (req, res) => {
-  
-   const { error } = validateCreateAdmin(req.body);
-   if (error) return res.status(400).send(error.details[0].message); //400 = bad request
+  const { error } = validateCreateAdmin(req.body);
+  if (error) return res.status(400).send(error.details[0].message); //400 = bad request
 
-   console.log(req.body);
+  console.log(req.body);
 
   try {
     db.sequelize.models.admin

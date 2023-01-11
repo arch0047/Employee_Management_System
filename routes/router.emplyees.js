@@ -1,13 +1,15 @@
 const express = require("express");
 const router = express.Router();
 const { validateCreateEmp } = require("../util/validate");
+// const { tokenaAthentication } = require("../util/authenticate");
 const bcrypt = require("bcrypt");
 const db = require("../connector/db");
 const Sequelize = require("sequelize");
 const Op = Sequelize.Op;
-
-
 const admin = require("../models/admin");
+
+
+
 
 // Create and Save a new employee
 router.post("/empC", (req, res) => {
