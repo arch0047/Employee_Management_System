@@ -109,7 +109,37 @@ div.search form {
  div.search form input{
 border-radius: 5px;
 box-shadow: 2px 5px 4px #6396cd;
-
  }
 
+/* ---------------------------------------------------
+    leave application
+----------------------------------------------------- */
 
+h4 {
+    font-size: x-large;
+    font-weight: bold;
+    font-style: italic
+    ;
+}
+div.leave-application {
+    max-width: auto;
+    padding: 5%;
+    margin: 10px auto;
+    top: -15px;
+    left: 30%;
+    border-radius: 5px;
+    position: absolute; 
+    font-size: small;
+}
+
+div.leave-application form input {
+    border-radius: 5px;
+    box-shadow: 2px 5px 4px #6396cd;
+    font-size: 12px;
+}
+
+div #application_row  {
+    font-style: italic;
+    font-weight: bold;
+    font-size: small;
+}

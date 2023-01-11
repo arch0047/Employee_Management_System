@@ -1,152 +1,114 @@
-<form target="_self" id="bootstrapForm" method="POST">
-    <fieldset>
-        <h2>Vacation Request Form<br><small></small></h2>
-    </fieldset>
+<!DOCTYPE html>
+<html lang="en">
 
-    <fieldset>
-        <legend for="1874755157">Name</legend>
-        <div class="form-group">
-            <input id="1729637716" type="text" name="entry.1729637716" class="form-control" required>
-        </div>
-    </fieldset>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 
-    <fieldset>
-        <legend for="184780103">Email</legend>
-        <div class="form-group">
-            <input id="1770396749" type="text" name="entry.1770396749" class="form-control" required>
-        </div>
-    </fieldset>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+        integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
 
-    <fieldset>
-        <legend for="376082603">Phone Number</legend>
-        <div class="form-group">
-            <input id="589094590" type="text" name="entry.589094590" class="form-control" required>
-        </div>
-    </fieldset>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="assets/overview.css">
+    <link rel="stylesheet" href="assets/createEmp.css">
 
-    <fieldset>
-        <legend for="919003939">Type of time-off requested</legend>
-        <div class="form-group">
-            <div class="radio">
-                <label>
-                    <input type="radio" name="entry.1409180901" value="Vacation" required>
-                    Vacation
-                </label>
+
+    <title>Add Project </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
             </div>
-            <div class="radio">
-                <label>
-                    <input type="radio" name="entry.1409180901" value="Sick Leave" required>
-                    Sick Leave
-                </label>
-            </div>
-            <div class="radio">
-                <label>
-                    <input type="radio" name="entry.1409180901" value="Maternity/Paternity" required>
-                    Maternity/Paternity
-                </label>
-            </div>
-            
-            <div class="radio">
-                <label>
-                    <input type="radio" name="entry.1409180901" value="Time off without pay" required>
-                    Time off without pay
-                </label>
-            </div>
-            <div class="radio">
-                <label>
-                    <input type="radio" name="entry.1409180901" value="Other" required>
-                    Other
-                </label>
-            </div>
+            <ul class="list-unstyled components">
+                <!-- <li>
+                    <a href="views/employeePage.ejs">Home</a>
+                </li> -->
+                <li>
+                    <a href="/createProject">Add Project</a>
+                </li>
+                <li>
+                    <a href="/allProjects">See Project List</a>
+                </li>
+                <li>
+                    <a href="/searchPro">Search Project</a>
+                </li>
+                <li class="active">
+                    <a href="/leave_application.html">Apply Leave</a>
+                </li>
+            </ul>
+        </nav>
+        <div id="content">
+            <nav class="navbar navbar-light" style="background-color:#3b7eb9">
+                <span class="navbar-brand h1" style="color: aliceblue">Employee Management System</span>
+                <a href="/logout" class="btn btn-info" role="button" aria-pressed="true">Logout</a>
+            </nav>
         </div>
-    </fieldset>
+    </div>
+    <div class="leave-application">
+        <form>
+            <h4>Vacation Request Form</h2>
+                <div id ="application_row">
+                    <label class="form-label" for="name">Name</label>
+                    <input type="text" name=" name " class="form-control" required>
+                    <label class="form-label" for="email">Email</label>
+                    <input type="email" name=" email " class="form-control" required>
+             
+              
+                    <label class="form-label" for="employee_phone">Phone Number</label>
+                    <input type="employee_phone" name=" employee_phone " class="form-control" required>
+             
+          
+                    <label class="form-label" for="request_type">Type of time-off requested</label>
+                    <div class="form-group">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="entry.1409180901" value="Vacation" required>
+                                Vacation
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="entry.1409180901" value="Sick Leave" required>
+                                Sick Leave
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="entry.1409180901" value="Maternity/Paternity" required>
+                                Maternity/Paternity
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="entry.1409180901" value="Other" required>
+                                Other
+                            </label>
+                        </div>
 
-    <fieldset>
-        <legend for="1833993761">Start Date</legend>
-        <div class="form-group">
-            <input type="date" id="1989254035_date" placeholder="8/23/2019" class="form-control" required>
-        </div>
-    </fieldset>
-
-    <fieldset>
-        <legend for="861643251">End Date</legend>
-        <div class="form-group">
-            <input type="date" id="1403025287_date" placeholder="8/23/2019" class="form-control" required>
-        </div>
-    </fieldset>
-
-    <fieldset>
-        <legend for="388489461">Time-off comments</legend>
-        <div class="form-group">
-            <textarea id="1357270616" name="entry.1357270616" class="form-control" required></textarea>
-        </div>
-    </fieldset>
-    <input type="hidden" name="fvv" value="1">
-    <input type="hidden" name="fbzx" value="5356028641311999799">
-
-    <input type="hidden" name="pageHistory" value="0">
-
-    <input class="btn btn-primary" type="submit" value="Submit">
-</form>
+                        <lable class="form-label" for="start_date">Start Date</label>
+                            <div class="form-group">
+                                <input type="date" id="start_date" placeholder="1/17/2023" class="form-control"
+                                    required>
+                            </div>
+                            <label for="end_date">End Date</label>
+                            <div class="form-group">
+                                <input type="date" id="end_date" placeholder="1/18/2023" class="form-control" required>
+                            </div>
+                            <br>
 </div>
-</div>
-</div>
-</div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
-    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js"
-    integrity="sha256-2Pjr1OlpZMY6qesJM68t2v39t+lMLvxwpa8QlRjJroA=" crossorigin="anonymous"></script>
-<script>
-    $('#bootstrapForm').submit(function (event) {
-        event.preventDefault()
-        var extraData = {}
-        {
-            /* Parsing input date id=1989254035 */
-            var dateField = $("#1989254035_date").val()
-            var timeField = $("#1989254035_time").val()
-            let d = new Date(dateField)
-            if (!isNaN(d.getTime())) {
-                extraData["entry.1989254035_year"] = d.getFullYear()
-                extraData["entry.1989254035_month"] = d.getMonth() + 1
-                extraData["entry.1989254035_day"] = d.getUTCDate()
-            }
-            if (timeField && timeField.split(':').length >= 2) {
-                let values = timeField.split(':')
-                extraData["entry.1989254035_hour"] = values[0]
-                extraData["entry.1989254035_minute"] = values[1]
-            }
-        }
-        {
-            /* Parsing input date id=1403025287 */
-            var dateField = $("#1403025287_date").val()
-            var timeField = $("#1403025287_time").val()
-            let d = new Date(dateField)
-            if (!isNaN(d.getTime())) {
-                extraData["entry.1403025287_year"] = d.getFullYear()
-                extraData["entry.1403025287_month"] = d.getMonth() + 1
-                extraData["entry.1403025287_day"] = d.getUTCDate()
-            }
-            if (timeField && timeField.split(':').length >= 2) {
-                let values = timeField.split(':')
-                extraData["entry.1403025287_hour"] = values[0]
-                extraData["entry.1403025287_minute"] = values[1]
-            }
-        }
-        $('#bootstrapForm').ajaxSubmit({
-            data: extraData,
-            dataType: 'jsonp',  // This won't really work. It's just to use a GET instead of a POST to allow cookies from different domain.
-            error: function () {
-                // Submit of form should be successful but JSONP callback will fail because Google Forms
-                // does not support it, so this is handled as a failure.
-                alert('Form Submitted. Thanks.')
-                // You can also redirect the user to a custom thank-you page:
-                // window.location = 'http://www.mydomain.com/thankyoupage.html'
+                            <input class="btn btn-primary" type="submit" value="Submit">
+        </form>
+    </div>
+    <script src="./public/sidebaar.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-                //https://www.w3resource.com/form-template/vacation-request-form.php
-            }
-        })
-    })
-</script>
 </body>
 
 </html>

@@ -31,13 +31,16 @@
                     <a href="views/employeePage.ejs">Home</a>
                 </li> -->
                 <li class="active">
-                    <a href="/CreateProject">Add Project</a>
+                    <a href="/createProject">Add Project</a>
                 </li>
                 <li>
                     <a href="/allProjects">See Project List</a>
                 </li>
                 <li>
                     <a href="/searchPro">Search Project</a>
+                </li>
+                <li>
+                    <a href="/leave_application.html">Apply Leave</a>
                 </li>
             </ul>
         </nav>
@@ -66,46 +69,45 @@
                     <!-- Name input -->
                     <div class="form-control-lg">
                         <label class="form-label" for="project_name">Name</label><br>
-                        <input class="center-blok" type="text" name="project_name" id="project_name" placeholder="Project name" required>
+                        <input class="center-blok" type="text" name="project_name" id="project_name"
+                            placeholder="Project name" required>
                     </div>
 
                     <!-- Department id-->
                     <div class="form-control-lg">
                         <label class="form-label" for="department_id">Department id</label><br>
-                        <select class="form-select " aria-label=".form-select-lg example" id="department_id" name="department_id" required>
+                        <select class="form-select " aria-label=".form-select-lg example" id="department_id"
+                            name="department_id" required>
                             <option value="" disabled selected>Select Status id</option>
                             <option value="1">IT Department</option>
                             <option value="2">Business Development</option>
                             <option value="3">UX/UI Department</option>
                             <option value="4">HR Department</option>
-                            <option value="5">Finances Department</option>   
+                            <option value="5">Finances Department</option>
                         </select>
                     </div>
                     <!-- Status id-->
                     <div>
-                    <label class="form-label" for="department_id">Status Id</label><br>
-                    <select class="form-select " aria-label=".form-select-lg example" id="status_id" name="status_id"
-                    required>
-                        <option value="" disabled selected>Select Status id</option>
-                        <option value="1">New</option>
-                        <option value="2">Finished</option>
-                        <option value="3">Not Started Yet</option>
-                        <option value="4">Active</option>
-                    </select>
+                        <label class="form-label" for="department_id">Status Id</label><br>
+                        <select class="form-select " aria-label=".form-select-lg example" id="status_id"
+                            name="status_id" required>
+                            <option value="" disabled selected>Select Status id</option>
+                            <option value="1">New</option>
+                            <option value="2">Finished</option>
+                            <option value="3">Not Started Yet</option>
+                            <option value="4">Active</option>
+                        </select>
                     </div>
-                    
+
                 </div><br>
 
                 <!-- Submit button -->
                 <button class="btn btn-primary btn-lg" type="submit" id="button">Save</button>
+            </form>
+
         </div>
-        </form>
-
-    </div>
-    <script src="./public/sidebaar.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-
+        <script src="./public/sidebaar.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </body>
 
 </html>
