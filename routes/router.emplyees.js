@@ -221,6 +221,20 @@ router.post("/search", (req, res) => {
   else { 
     res.redirect("/searchEmp");}
 });
- 
- 
+
+
+router.get("/empList", (req, res, error) => {
+  db.sequelize.models.employees
+    .findAll({ raw: true })
+    .then((employees) => {
+      res.render("list.ejs", {
+        title: "Employees List",
+        employees: employees,
+      });
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+});
+
 module.exports = router;

@@ -33,22 +33,21 @@
                 
             </div>
             <ul class="list-unstyled components">
-                <li class="active">
-                    <a href="/frontend/overview.html">Profile</a>
-                </li>
 
                 <li>
-                    <a href="/createPro">Add Project</a>
+                    <a href="/createProject">Add Project</a>
                 </li>
                 <li>
-                    <a href="/allProjects">See Project List</a>
+                    <a href="/allProjects">Project List</a>
                 </li>
                 <li>
                     <a href="/searchPro">Sreach Project</a>
                 </li>
-
+                <li class="active">
+                    <a href="empList">Employee List</a>
+                </li>
                 <li>
-                    <a href="/frontend/leave_application.html">Leave Application</a>
+                    <a href="leave_application">Apply for Leave</a>
                 </li>
             </ul>
         </nav>
@@ -70,7 +69,7 @@
     </div>
     <!--Navbar end-->
 
-    <div class="container">
+    <div class="containerList">
         <div>
             <h2>
                 <%= (typeof title !="undefined" ? title : "" ) %>
@@ -79,6 +78,7 @@
         <table class="table table-striped">
             <thead>
                 <tr>
+                    <th>Employee Id</th>
                     <th>Full Name</th>
                     <th>Email</th>
                     <th>Employee Location</th>
@@ -89,6 +89,9 @@
             <tbody>
                 <% employees.forEach(function(employee){ %>
                     <tr>
+                        <td>
+                            <%=employee.employee_id %>
+                        </td>
                         <td>
                             <%=employee.name %>
                         </td>
@@ -109,6 +112,10 @@
             </tbody>
         </table>
     </div>
+
+    <script src="../public/sidebaar.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 </body>
 
 
