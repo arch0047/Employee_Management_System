@@ -13,7 +13,7 @@ jobs:
     env:
       HOST: den1.mysql3.gear.host
       DB_USERNAME: sequlizeempdb
-      PASSWORD: DamyantiM@26
+      PASSWORD: SOME PASSWORD
       DATABASE: sequlizeempdb
       DB_PORT: 3306
 
