@@ -1,10 +1,21 @@
 const jwt = require('jsonwebtoken');
-const dotenv = require("dotenv");
-dotenv.config();
+
+
+const authUser = (role) => {
+  return (req, res, next) => {
+    if (role == null) {
+      res.status(403);
+      return res.send("you need to log in");
+    } else if (role == "admin") {
+      next();
+    }
+  };
+};
+
 
 const tokenaAthentication = (role) => {
   return (req, res, next) => {
-      const authHeader = req.headers[("authorization", accessToken)];
+      const authHeader = req.headers.accessToken;
       console.log(authHeader);
       const token = authHeader && authHeader.split(" ")[1];
       console.log(token)
@@ -23,4 +34,5 @@ const tokenaAthentication = (role) => {
   };
 };
 
+module.exports.authUser = authUser;
 module.exports.tokenaAthentication = tokenaAthentication;

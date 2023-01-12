@@ -2,8 +2,7 @@ const express = require("express");
 const app = express();
 const dotenv = require("dotenv");
 dotenv.config();
-// load the mysql routers to the app
-// require("./routes/routes.mysql")(app);
+
 const path = require("path");
 const PORT = process.env.PORT || 3000;
 
@@ -12,15 +11,13 @@ const PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 require("./routes/routes.mysql")(app);
+
 // server static files
 app.use(express.static("frontend", { extensions: ["html", "ejs"] }));
 app.set("views", path.join(__dirname, "frontend/views"));
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "/public")));
 
-
-// server static files
-app.use(express.static('frontend', { extensions: ['html'] }))
 
 //welcome page
 app.get('/welcome', (req, res) => {
