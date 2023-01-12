@@ -61,10 +61,9 @@
             </div>
         </div>
         <div class="container1">
-                <h2>Add New Employee</h2>
-                <div>
+                
                     <form method="POST" action="/empC">
-                        <!-- 2 column grid layout with text inputs for the first and last names -->
+                        <h2>Add New Employee</h2>
                         <div class="row">
                             <!-- Name input -->
                             <div class="form-control-lg">
@@ -106,16 +105,14 @@
                                     <option value="2">Developer</option>
                                     <option value="3">Consultant</option>
                                     <option value="4">Designer</option>
-                                    <option value="5">Chief director</option>
-                                    <option value="6">Managing director</option>
-                                    <option value="7">Accountant</option>
+                                    <option value="5">Accountant</option>
                                 </select>
                             </div>
                         
                             <!-- Department id-->
                             <div class="form-control-lg">
                                 <label class="form-label" for="department_id">Department id</label><br>
-                                <select class="form-select " aria-label=".form-select-lg example" id="department_id" name="department_id" required>
+                                <select class="form-select " aria-label=".form-select-lg example" id="department_id" name="department_id" >
                                     <option value="" disabled selected>Select Department</option>
                                     <option value="1">IT Department</option>
                                     <option value="2">Business Development</option>
@@ -130,6 +127,11 @@
                                 <input class="center-blok" type="text" name="employee_salary" id="employee_salary"
                                     placeholder="Salary" required>
                             </div>
+                            <!-- Email input -->
+                            <!-- <div class="form-control-lg">
+                                <label class="form-label" for="user_type">User Type</label><br>
+                                <input class="center-blok" type="user_type" name="user_type" id="user_type" placeholder="Employee" required><br>
+                            </div> -->
                         </div><br>
 
                 <!-- Submit button -->
@@ -137,7 +139,7 @@
                 <br><br>
                 <div ><a href="/createEmp" class="text-underline-hover">Add More</a></div>
 
-            </div>
+           
             </form>
       
     </div>
