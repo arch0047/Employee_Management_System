@@ -16,6 +16,7 @@ jobs:
       PASSWORD: SOME PASSWORD
       DATABASE: sequlizeempdb
       DB_PORT: 3306
+      JWT_SECRET: mySecret
 
     steps:
       - uses: actions/checkout@v3
