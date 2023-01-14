@@ -12,7 +12,6 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 
-
 router.post("/login", ratelimiter, async (req, res) => {
   
   try {
@@ -35,6 +34,7 @@ router.post("/login", ratelimiter, async (req, res) => {
   
     if (admin == null && employee == null) {
       res.status(400).json({ message: "User doesn't exist" });
+
     } else if (employee) {
       if (await bcrypt.compare(plainPassword, employee.password)) {
         const accessToken = jwt.sign(
@@ -43,9 +43,9 @@ router.post("/login", ratelimiter, async (req, res) => {
         );
         res
           .status(200)
-          .set("Bearer", accessToken)
+          .cookie("accessToken", accessToken)
           // .redirect("/employeePage")
-          .render("employeePage.ejs",{
+          .render("employeePage.ejs", {
             title: "Employees home page",
             employees: employee,
           });
@@ -59,10 +59,13 @@ router.post("/login", ratelimiter, async (req, res) => {
           {role:'admin', email: admin.email, id: admin.id },
           process.env.JWT_SECRET
         );
-        res.status(200).set("Bearer", accessToken).render("adminPage.ejs", {
-          title: "Admin home page",
-          admin: admin,
-        });
+        res
+          .status(200)
+          .cookie("accessToken", accessToken)
+          .render("adminPage.ejs", {
+            title: "Admin home page",
+            admin: admin,
+          });
         console.log(accessToken);
       } else {
         res.status(400).json({ message: "Wrong password" });

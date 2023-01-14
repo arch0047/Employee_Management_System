@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const { validateCreateEmp } = require("../util/validate");
-// const { tokenaAthentication } = require("../util/authenticate");
+const { tokenaAthentication } = require("../util/authenticate");
 const bcrypt = require("bcrypt");
 const db = require("../connector/db");
 const Sequelize = require("sequelize");
@@ -12,7 +12,7 @@ const admin = require("../models/admin");
 
 
 // Create and Save a new employee
-router.post("/empC", (req, res) => {
+router.post("/empC",tokenaAthentication("admin"), (req, res) => {
 
     const { error } = validateCreateEmp(req.body);
     if (error) return res.status(400).send(error.details[0].message); //400 = bad request
@@ -38,9 +38,9 @@ router.post("/empC", (req, res) => {
 
 // Find all employee
 
-router.get("/allEmp", (req, res, error) => {
+router.get("/allEmp", tokenaAthentication("admin"), (req, res, error) => {
   db.sequelize.models.employees
-    .findAll({raw: true})
+    .findAll({ raw: true })
     .then((employees) => {
       res.render("allEmp.ejs", {
         title: "Employees List",
@@ -101,7 +101,7 @@ router.get("/deleteEmp/:id", (req, res) => {
 });
 
 // Update and Save employee
-router.get("/updateEmp/:id", (req, res) => {
+router.get("/updateEmp/:id", tokenaAthentication("admin"), (req, res) => {
   db.sequelize.models.employees
     .findOne({
       where: { employee_id: req.params.id },
@@ -144,13 +144,13 @@ router.post("/updateEmp", (req, res) => {
 
 
 
-router.get("/searchEmp", (req, res) => {
+router.get("/searchEmp",tokenaAthentication("admin"), (req, res) => {
   res.render("searchEmp.ejs")
 
 });
 
 
-router.post("/search", (req, res) => {
+router.post("/search",tokenaAthentication("admin"), (req, res) => {
 
   var department_id = req.body.department_id;
   var employee_location = req.body.employee_location;

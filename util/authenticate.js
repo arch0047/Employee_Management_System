@@ -1,31 +1,21 @@
 const jwt = require('jsonwebtoken');
 
 
-const authUser = (role) => {
-  return (req, res, next) => {
-    if (role == null) {
-      res.status(403);
-      return res.send("you need to log in");
-    } else if (role == "admin") {
-      next();
-    }
-  };
-};
-
-
 const tokenaAthentication = (role) => {
   return (req, res, next) => {
-      const authHeader = req.headers.accessToken;
-      console.log(authHeader);
-      const token = authHeader && authHeader.split(" ")[1];
+      const cookie = req.headers['cookie'];
+      console.log(cookie);
+      const token = cookie && cookie.split("accessToken=")[1];
       console.log(token)
     if (token == null)
-      return res.status(401).send("You do not have access to this page");
+      return res.status(401).send("You need to log in");
 
-    jwt.verify(token, process.env.JWT_SECRET, (error, decoded) => {
+    jwt.verify(token, process.env.JWT_SECRET, (error, user) => {
+      console.log(role)
+      console.log(user.role);
       if (error) return res.sendStatus(403);
-      if ((decoded.role = role)) {
-        req.email = decoded.email;
+      if ((user.role == role)) {
+        req.user = user;
         next();
       } else {
         return res.status(403).send("User is not: " + role);
@@ -34,5 +24,5 @@ const tokenaAthentication = (role) => {
   };
 };
 
-module.exports.authUser = authUser;
+
 module.exports.tokenaAthentication = tokenaAthentication;

@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const db = require("../connector/db");
 const Departments = require("../models/departments");
+const { tokenaAthentication } = require("../util/authenticate");
 const Sequelize = require("sequelize");
 const Op = Sequelize.Op;
 
@@ -9,7 +10,7 @@ const Op = Sequelize.Op;
 // Create and Save a new employee
 
 
-router.post("/createProject", (req, res) => {
+router.post("/createProject",tokenaAthentication("employee"), (req, res) => {
   try {
     db.sequelize.models.projects
       .create({
@@ -26,15 +27,19 @@ router.post("/createProject", (req, res) => {
 
 
 
-router.get("/searchPro", (req, res) => {
-  res.render("searchPro.ejs");
-});
+router.get(
+  "/searchPro",
+  tokenaAthentication("employee", "admin"),
+  (req, res) => {
+    res.render("searchPro.ejs");
+  }
+);
 
-router.post("/searchProject", (req, res) => {
+router.post("/searchProject", tokenaAthentication("employee"), (req, res) => {
   var department_id = req.body.department_id;
   var status_id = req.body.status_id;
 
-  console.log(department_id)
+  console.log(department_id);
   console.log(status_id);
   if (department_id == "0") {
     department_id = "";
@@ -42,7 +47,7 @@ router.post("/searchProject", (req, res) => {
   if (status_id == "0") {
     status_id = "";
   }
-  
+
   if (department_id != "" && status_id != "") {
     db.sequelize.models.projects
       .findAll({
@@ -62,13 +67,11 @@ router.post("/searchProject", (req, res) => {
       .catch((error) => {
         console.log(error);
       });
-  } else if (status_id !="") {
+  } else if (status_id != "") {
     db.sequelize.models.projects
       .findAll({
         where: {
-          [Op.or]: [
-            { status_id: { [Op.like]: "%" + status_id + "%" } },
-          ],
+          [Op.or]: [{ status_id: { [Op.like]: "%" + status_id + "%" } }],
         },
       })
       .then((projects) => {
@@ -98,31 +101,33 @@ router.post("/searchProject", (req, res) => {
       .catch((error) => {
         console.log(error);
       });
-  }
-  else
-    res.send.json({ message: "project doesn't exist" })
+  } else res.send.json({ message: "project doesn't exist" });
 });
 
 
 // find one and update
 
-router.get("/updatePro/:id", (req, res) => {
-  db.sequelize.models.projects
-    .findOne({
-      where: { project_id: req.params.id },
-    })
-    .then((project) => {
-      res.render("updatePro.ejs", {
-        title: "Update Project",
-        projects: project,
-      });
-    })
-    .catch((err) => res.status(500).send(`Something went wrong ! + ${err}`));
-});
+router.get(
+  "/updatePro/:id",
+  tokenaAthentication("employee"),
+  (req, res) => {
+    db.sequelize.models.projects
+      .findOne({
+        where: { project_id: req.params.id },
+      })
+      .then((project) => {
+        res.render("updatePro.ejs", {
+          title: "Update Project",
+          projects: project,
+        });
+      })
+      .catch((err) => res.status(500).send(`Something went wrong ! + ${err}`));
+  }
+);
 
 // Update and Save project
 
-router.post("/updatePro", (req, res) => {
+router.post("/updatePro", tokenaAthentication("employee"), (req, res) => {
   db.sequelize.models.projects
     .update(
       {
@@ -145,7 +150,7 @@ router.post("/updatePro", (req, res) => {
 // no need to delete the project as want to keep record of all projects
 
 // Delete a Project
-router.get("/deletePro/:id", (req, res) => {
+router.get("/deletePro/:id", tokenaAthentication("admin"), (req, res) => {
   db.sequelize.models.projects
     .destroy({ where: { project_id: req.params.id } })
     .then((rowDeleted) => {
@@ -161,7 +166,7 @@ router.get("/deletePro/:id", (req, res) => {
 
 // Find all projects
 
-router.get("/allProjects", (req, res, error) => {
+router.get("/allProjects", tokenaAthentication("employee"),  (req, res, error) => {
   db.sequelize.models.projects
     .findAll()
     .then((projects) => {
