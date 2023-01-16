@@ -166,7 +166,7 @@ router.get("/deletePro/:id", tokenaAthentication("admin"), (req, res) => {
 
 // Find all projects
 
-router.get("/allProjects", tokenaAthentication("employee"),  (req, res, error) => {
+router.get("/allProjects", (req, res, error) => {
   db.sequelize.models.projects
     .findAll()
     .then((projects) => {
